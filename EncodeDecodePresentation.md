@@ -81,7 +81,7 @@ export function encodeWithKey(message, keyword) {
   // Your code here to encode a message using a fixed shift
 }
 
-export function decode(encodedMessage, keyword) {
+export function decodeWithKey(encodedMessage, keyword) {
   // Your code here to decode a message using a fixed shift
 }
 ```
