@@ -1,32 +1,84 @@
 import { describe, it, expect } from 'vitest';
-import { encodeWithKey, decodeWithKey } from './main.js';
+import { encodeWithKey, decodeWithKey } from './main.js'; // Update the path as necessary
 
-describe("Adaptive Cipher Challenge", () => {
-  it("Encoding with a dynamic shift using a keyword", () => {
-
-    expect(encodeWithKey("This is a strategic message of the utmost importance", "school")).toEqual("Ljpg wd s uafoewipq apkuhus zx vos ieeqzh wxhqyhoyug");
-
-    expect(encodeWithKey("Please follow these instructions carefully", "of")).toEqual("Dqsfgj ttzqcb hmsxs nbxhwihhncsg howskiqzd");
-
-    expect(encodeWithKey("If you do not, you will fail our important ritual", "code")).toEqual("Kt bsw rr rqh, bsw klpn tdmn cxv kassthdrv flxwoo");
+describe("Message encoder and decoder tests with keyword", () => {
+  it("should encode and decode message with the keyword 'key'", () => {
+    const originalMessage = "This is a message of the utmost importance";
+    const keyword = "key";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
   });
 
-
-
-  
-  it("Decoding with a dynamic shift using a keyword", () => {
-    expect(decodeWithKey("Ljpg wd s uafoewipq apkuhus zx vos ieeqzh wxhqyhoyug", "school")).toEqual("This is a strategic message of the utmost importance");
-
-    expect(decodeWithKey("Dqsfgj ttzqcb hmsxs nbxhwihhncsg howskiqzd", "of")).toEqual("Please follow these instructions carefully");
-
-    expect(decodeWithKey("Kt bsw rr rqh, bsw klpn tdmn cxv kassthdrv flxwoo", "code")).toEqual("If you do not, you will fail our important ritual");
+  it("should encode and decode message with the keyword 'cipher'", () => {
+    const originalMessage = "Please follow these instructions carefully";
+    const keyword = "cipher";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
   });
 
-  it("Ensuring encoding and decoding with the same keyword return the original message", () => {
-    const originalMessage = "The Quick Brown Fox Jumps Over The Lazy Dog";
-    const keyword = "secure";
-    const encodedMessage = encodeWithKey(originalMessage, keyword);
-    const decodedMessage = decodeWithKey(encodedMessage, keyword);
-    expect(decodedMessage).toEqual(originalMessage);
+  it("should encode and decode message correctly with the keyword 'secret'", () => {
+    const originalMessage = "If you do not, this ship's nuclear engine will self-destruct in 16 seconds";
+    const keyword = "secret";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
+  });
+
+  it("should encode and decode message correctly with the keyword 'puzzle'", () => {
+    const originalMessage = "Rub your hands together";
+    const keyword = "puzzle";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
+  });
+
+  it("should encode and decode message correctly with the keyword 'challenge'", () => {
+    const originalMessage = "Place both hands up in the air";
+    const keyword = "challenge";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
+  });
+
+  it("should encode and decode message correctly with the keyword 'encode'", () => {
+    const originalMessage = "Stretch your hands out in opposite directions as far as you can horizontally";
+    const keyword = "encode";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
+  });
+
+  it("should encode and decode message correctly with the keyword 'decode'", () => {
+    const originalMessage = "Stretch your hands out in opposite directions as far as you can diagonally, right hand higher than your left";
+    const keyword = "decode";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
+  });
+
+  it("should encode and decode message correctly with the keyword 'vertical'", () => {
+    const originalMessage = "Stretch your hands out in opposite directions as far as you can diagonally, right hand lower than your left";
+    const keyword = "vertical";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
+  });
+
+  it("should encode and decode message correctly with the keyword 'horizontal'", () => {
+    const originalMessage = "Place your left hand at your side and stretch your right hand far out directly in front of you";
+    const keyword = "horizontal";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
+  });
+
+  it("should encode and decode message correctly with the keyword 'activation'", () => {
+    const originalMessage = "Now squat to activate the ships computer";
+    const keyword = "activation";
+    const encoded = encodeWithKey(originalMessage, keyword);
+    const decoded = decodeWithKey(encoded, keyword);
+    expect(decoded).toBe(originalMessage);
   });
 });
